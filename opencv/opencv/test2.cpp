@@ -9,9 +9,9 @@
 //
 //void PopFileInitialize (HWND hwnd)
 //{
-//	static TCHAR szFilter[] = TEXT ("ËùÓĞÍ¼Æ¬ÎÄ¼ş\0*.bmp;*.dib;*.jpg;*.jpeg;*.jpe;*.gif;*.tiff;*.ico\0")  \
-//		TEXT ("JPEGÎÄ¼ş (*.jpg;*.jpeg;*.jpe)\0*.jpg;*.jpeg;*.jpe\0") \
-//		TEXT ("Î»Í¼ÎÄ¼ş (*.bmp;*.dib)\0*.bmp;*.dib\0") \
+//	static TCHAR szFilter[] = TEXT ("æ‰€æœ‰å›¾ç‰‡æ–‡ä»¶\0*.bmp;*.dib;*.jpg;*.jpeg;*.jpe;*.gif;*.tiff;*.ico\0")  \
+//		TEXT ("JPEGæ–‡ä»¶ (*.jpg;*.jpeg;*.jpe)\0*.jpg;*.jpeg;*.jpe\0") \
+//		TEXT ("ä½å›¾æ–‡ä»¶ (*.bmp;*.dib)\0*.bmp;*.dib\0") \
 //		TEXT ("GIF (*.gif)\0*.gif\0") \
 //		TEXT ("TIFF (*.tiff)\0*.tiff") \
 //		TEXT ("ICO (*.ico)\0*.ico\0\0");
@@ -52,10 +52,10 @@
 //{
 //	static TCHAR     szFileName[MAX_PATH], szTitleName[MAX_PATH] ;
 //	HWND      hwnd;
-//	hwnd=GetForegroundWindow(); //»ñÈ¡Ç°Ì¨´°¿Ú¾ä±ú¡£±¾³ÌĞòÖĞµÄÇ°Ì¨´°¿Ú¾ÍÊÇ¿ØÖÆÌ¨´°¿Ú¡£ 
-//	PopFileInitialize (hwnd);  //³õÊ¼»¯ofn
-//	PopFileOpenDlg(hwnd, szFileName, szTitleName);//´ò¿ªÎÄ¼ş¶Ô»°¿ò
-//	if(strcmp(szFileName,"")==0){cout<<"Ã»ÓĞÊäÈë\n";return 0;}
+//	hwnd=GetForegroundWindow(); //è·å–å‰å°çª—å£å¥æŸ„ã€‚æœ¬ç¨‹åºä¸­çš„å‰å°çª—å£å°±æ˜¯æ§åˆ¶å°çª—å£ã€‚ 
+//	PopFileInitialize (hwnd);  //åˆå§‹åŒ–ofn
+//	PopFileOpenDlg(hwnd, szFileName, szTitleName);//æ‰“å¼€æ–‡ä»¶å¯¹è¯æ¡†
+//	if(strcmp(szFileName,"")==0){cout<<"æ²¡æœ‰è¾“å…¥\n";return 0;}
 //	string str(szFileName);
 //	Sumiao2 test(szFileName);
 //	test.showOriginal();

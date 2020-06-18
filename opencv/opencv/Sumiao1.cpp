@@ -21,22 +21,22 @@ Sumiao1::Sumiao1(const char*fileName)
 	MatBoundGrayLvbo=new cv::Mat(cvGetSize(cvImageSrc),CV_8UC1);
 	MatBinaryGrayLvboDelete=new cv::Mat(cvGetSize(cvImageSrc),CV_8UC1);
 
-	//¡¾1¡¿»Ò¶ÈÍ¼
+	//ã€1ã€‘ç°åº¦å›¾
 	cvtColor(*MatSrc,*MatGray,CV_BGR2GRAY);
-	//¡¾2¡¿¹ıÂËÆ÷
+	//ã€2ã€‘è¿‡æ»¤å™¨
 	getLvbo(MatGray,MatGrayLvbo,k);
-	//¡¾3¡¿¶şÖµ»¯ÂË²¨Í¼  MatBinaryGrayLvbo
+	//ã€3ã€‘äºŒå€¼åŒ–æ»¤æ³¢å›¾  MatBinaryGrayLvbo
 	double uofGray = getuOfGray(MatGrayLvbo);
 	double B=uofGray*b;
 	cv::threshold(*MatGrayLvbo, *MatBinaryGrayLvbo
 		, B, 255, CV_THRESH_BINARY );
-	//¡¾4¡¿±ßÔµ¼ì²âÂË²¨Í¼  MatBinaryGrayLvbo
+	//ã€4ã€‘è¾¹ç¼˜æ£€æµ‹æ»¤æ³¢å›¾  MatBinaryGrayLvbo
 	cv::Canny(*MatGrayLvbo, *MatBoundGrayLvbo, 
 		canthreshold, canthreshold * 3, 3);
 	addWeighted(*MatBoundGrayLvbo,-1,NULL,0,
 		255,*MatBoundGrayLvbo);
 	MatBinaryGrayLvboDelete=new cv::Mat(*MatBinaryGrayLvbo);
-	//¡¾5¡¿Í¨¹ı±ßÔµ¼ì²âÀ´¶ÔMatBinaryGrayLvboÈ¥Ôë
+	//ã€5ã€‘é€šè¿‡è¾¹ç¼˜æ£€æµ‹æ¥å¯¹MatBinaryGrayLvboå»å™ª
 	deleteNoise(MatBinaryGrayLvboDelete,MatBoundGrayLvbo);
 
 }
@@ -154,35 +154,35 @@ void Sumiao1::showOriginal()
 
 void Sumiao1::showGray()
 {
-	//Êä³ö
+	//è¾“å‡º
 	imshow(str2,*MatGray);
 	cv::moveWindow(str2,10,100);
 }
 
 void Sumiao1::showGrayLvbo()
 {
-	//Êä³ö
+	//è¾“å‡º
 	imshow(str3,*MatGrayLvbo);
 	cv::moveWindow(str3,10,200);
 }
 
 void Sumiao1::showBinaryGrayLvbo()
 {
-	//Êä³ö
+	//è¾“å‡º
 	imshow(str4,*MatBinaryGrayLvbo);
 	cv::moveWindow(str4,10,300);
 }
 
 void Sumiao1::showBoundGrayLvbo()
 {
-	//Êä³ö
+	//è¾“å‡º
 	imshow(str5,*MatBoundGrayLvbo);
 	cv::moveWindow(str5,10,400);
 }
 
 void Sumiao1::showBinaryGrayLvboDelete()
 {
-	//Êä³ö
+	//è¾“å‡º
 	imshow(str6,*MatBinaryGrayLvboDelete);
 	cv::moveWindow(str6,10,500);
 }

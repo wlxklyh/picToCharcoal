@@ -1,4 +1,4 @@
-////ÀûÓÃ·´É«¼õµ­ºÍÔ­À´µÄ»Ò¶ÈÍ¼ºÏ²¢
+////åˆ©ç”¨åè‰²å‡æ·¡å’ŒåŸæ¥çš„ç°åº¦å›¾åˆå¹¶
 //
 //#include <math.h>  
 //#include <opencv/cv.h>  
@@ -14,13 +14,13 @@
 //	int width=src.cols;
 //	int heigh=src.rows;
 //	Mat gray0,gray1;  
-//	//È¥É«  
-//	cvtColor(src,gray0,CV_BGR2GRAY);  //-¡·»Ò¶ÈÍ¼
-//	//·´É«  
-//	addWeighted(gray0,-1,NULL,0,255,gray1);//»Ò¶ÈÍ¼·´É«
-//	//¸ßË¹Ä£ºı,¸ßË¹ºËµÄSizeÓë×îºóµÄĞ§¹ûÓĞ¹Ø  
+//	//å»è‰²  
+//	cvtColor(src,gray0,CV_BGR2GRAY);  //-ã€‹ç°åº¦å›¾
+//	//åè‰²  
+//	addWeighted(gray0,-1,NULL,0,255,gray1);//ç°åº¦å›¾åè‰²
+//	//é«˜æ–¯æ¨¡ç³Š,é«˜æ–¯æ ¸çš„Sizeä¸æœ€åçš„æ•ˆæœæœ‰å…³  
 //	GaussianBlur(gray1,gray1,Size(11,11),0);  
-//	//ÈÚºÏ£ºÑÕÉ«¼õµ­  
+//	//èåˆï¼šé¢œè‰²å‡æ·¡  
 //	Mat img(gray1.size(),CV_8UC1);  
 //	for (int y=0; y<heigh; y++)  
 //	{
@@ -34,13 +34,13 @@
 //			P[x] =(uchar) min((tmp0+(tmp0*tmp1)/(256-tmp1)),255);  
 //		}
 //	}
-//	imshow("ËØÃè",img);
+//	imshow("ç´ æ",img);
 //	IplImage saveImage=img;
 //	cvSaveImage("save1.jpg",&saveImage);
 //	waitKey();
 //}  
 //
-////·½·¨
+////æ–¹æ³•
 //************************************************************************/
 //*                                                                      */
 //************************************************************************//

@@ -21,13 +21,13 @@ Sumiao2::Sumiao2(const char* filename)
 	MatGrayInvGausi = new cv::Mat(cvImageSrc);
 	MatSumiao = new cv::Mat(MatGrayInv->size(),CV_8UC1);
 
-	//¡¾1¡¿»Ò¶ÈÍ¼
+	//ã€1ã€‘ç°åº¦å›¾
 	cvtColor(*MatSrc,*MatGray,CV_BGR2GRAY);
-	//¡¾2¡¿·´É«
-	addWeighted(*MatGray,-1,NULL,0,255,*MatGrayInv);//»Ò¶ÈÍ¼·´É«
-	//¡¾3¡¿¸ßË¹Ä£ºý,¸ßË¹ºËµÄSizeÓë×îºóµÄÐ§¹ûÓÐ¹Ø  
+	//ã€2ã€‘åè‰²
+	addWeighted(*MatGray,-1,NULL,0,255,*MatGrayInv);//ç°åº¦å›¾åè‰²
+	//ã€3ã€‘é«˜æ–¯æ¨¡ç³Š,é«˜æ–¯æ ¸çš„Sizeä¸Žæœ€åŽçš„æ•ˆæžœæœ‰å…³  
 	GaussianBlur(*MatGrayInv,*MatGrayInvGausi,cv::Size(11,11),0);  
-	//¡¾4¡¿ÈÚºÏ£ºÑÕÉ«¼õµ­
+	//ã€4ã€‘èžåˆï¼šé¢œè‰²å‡æ·¡
 	int width=MatGrayInv->cols;  
 	int heigh=MatGrayInv->rows;  
 	for (int y=0; y<heigh; y++)

@@ -4,44 +4,44 @@
 //#include<math.h>
 //using namespace cv;
 //
-////ÊÖ¶¯ÊµÏÖÀ­ÆÕÀ­Ë¹Ëã×ÓÍ¼ÏñÈñ»¯
+////æ‰‹åŠ¨å®ç°æ‹‰æ™®æ‹‰æ–¯ç®—å­å›¾åƒé”åŒ–
 //void sharpenImage1(const Mat &image, Mat &result)
 //{
-//    result.create(image.size(),image.type());//ÎªÊä³öÍ¼Ïñ·ÖÅäÄÚÈİ
-//    /*À­ÆÕÀ­Ë¹ÂË²¨ºË3*3
+//    result.create(image.size(),image.type());//ä¸ºè¾“å‡ºå›¾åƒåˆ†é…å†…å®¹
+//    /*æ‹‰æ™®æ‹‰æ–¯æ»¤æ³¢æ ¸3*3
 //         0  -1   0
 //        -1   5  -1
 //         0  -1   0  */
-//    //´¦Àí³ı×îÍâÎ§Ò»È¦ÍâµÄËùÓĞÏñËØÖµ
+//    //å¤„ç†é™¤æœ€å¤–å›´ä¸€åœˆå¤–çš„æ‰€æœ‰åƒç´ å€¼
 //    for(int i=1; i<image.rows-1; i++)
 //    {
-//        const uchar * pre = image.ptr<const uchar>(i-1);//Ç°Ò»ĞĞ
-//        const uchar * cur = image.ptr<const uchar>(i);//µ±Ç°ĞĞ£¬µÚiĞĞ
-//        const uchar * next = image.ptr<const uchar>(i+1);//ÏÂÒ»ĞĞ
-//        uchar * output = result.ptr<uchar>(i);//Êä³öÍ¼ÏñµÄµÚiĞĞ
-//        int ch = image.channels();//Í¨µÀ¸öÊı
-//        int startCol = ch;//Ã¿Ò»ĞĞµÄ¿ªÊ¼´¦Àíµã
-//        int endCol = (image.cols-1)* ch;//Ã¿Ò»ĞĞµÄ´¦Àí½áÊøµã
+//        const uchar * pre = image.ptr<const uchar>(i-1);//å‰ä¸€è¡Œ
+//        const uchar * cur = image.ptr<const uchar>(i);//å½“å‰è¡Œï¼Œç¬¬iè¡Œ
+//        const uchar * next = image.ptr<const uchar>(i+1);//ä¸‹ä¸€è¡Œ
+//        uchar * output = result.ptr<uchar>(i);//è¾“å‡ºå›¾åƒçš„ç¬¬iè¡Œ
+//        int ch = image.channels();//é€šé“ä¸ªæ•°
+//        int startCol = ch;//æ¯ä¸€è¡Œçš„å¼€å§‹å¤„ç†ç‚¹
+//        int endCol = (image.cols-1)* ch;//æ¯ä¸€è¡Œçš„å¤„ç†ç»“æŸç‚¹
 //        for(int j=startCol; j < endCol; j++)
 //        {
-//            //Êä³öÍ¼ÏñµÄ±éÀúÖ¸ÕëÓëµ±Ç°ĞĞµÄÖ¸ÕëÍ¬²½µİÔö, ÒÔÃ¿ĞĞµÄÃ¿Ò»¸öÏñËØµãµÄÃ¿Ò»¸öÍ¨µÀÖµÎªÒ»¸öµİÔöÁ¿, ÒòÎªÒª¿¼ÂÇµ½Í¼ÏñµÄÍ¨µÀÊı
-//            //saturate_cast<uchar>±£Ö¤½á¹ûÔÚuchar·¶Î§ÄÚ
+//            //è¾“å‡ºå›¾åƒçš„éå†æŒ‡é’ˆä¸å½“å‰è¡Œçš„æŒ‡é’ˆåŒæ­¥é€’å¢, ä»¥æ¯è¡Œçš„æ¯ä¸€ä¸ªåƒç´ ç‚¹çš„æ¯ä¸€ä¸ªé€šé“å€¼ä¸ºä¸€ä¸ªé€’å¢é‡, å› ä¸ºè¦è€ƒè™‘åˆ°å›¾åƒçš„é€šé“æ•°
+//            //saturate_cast<uchar>ä¿è¯ç»“æœåœ¨ucharèŒƒå›´å†…
 //            *output++ = saturate_cast<uchar>(5*cur[j]-pre[j]-next[j]-cur[j-ch]-cur[j+ch]);
 //        }
 //    }
-//    //½«×îÍâÎ§Ò»È¦µÄÏñËØÖµÉèÎª0
+//    //å°†æœ€å¤–å›´ä¸€åœˆçš„åƒç´ å€¼è®¾ä¸º0
 //    result.row(0).setTo(Scalar(0));
 //    result.row(result.rows-1).setTo(Scalar(0));
 //    result.col(0).setTo(Scalar(0));
 //    result.col(result.cols-1).setTo(Scalar(0));
-//    /*/»òÕßÒ²¿ÉÒÔ³¢ÊÔ½«×îÍâÎ§Ò»È¦ÉèÖÃÎªÔ­Í¼µÄÏñËØÖµ
+//    /*/æˆ–è€…ä¹Ÿå¯ä»¥å°è¯•å°†æœ€å¤–å›´ä¸€åœˆè®¾ç½®ä¸ºåŸå›¾çš„åƒç´ å€¼
 //    image.row(0).copyTo(result.row(0));
 //    image.row(image.rows-1).copyTo(result.row(result.rows-1));
 //    image.col(0).copyTo(result.col(0));
 //    image.col(image.cols-1).copyTo(result.col(result.cols-1));*/
 //}
 //
-////µ÷ÓÃOpenCVº¯ÊıÊµÏÖÀ­ÆÕÀ­Ë¹Ëã×ÓÍ¼ÏñÈñ»¯
+////è°ƒç”¨OpenCVå‡½æ•°å®ç°æ‹‰æ™®æ‹‰æ–¯ç®—å­å›¾åƒé”åŒ–
 //void sharpenImage2(const Mat &image, Mat &result)
 //{
 //    Mat kernel = (Mat_<float>(3,3) << 0,-1,0,-1,5,-1,0,-1,0);
@@ -51,7 +51,7 @@
 //const char* str1="112";
 //const char* str2="2233";
 //const char* str3="3421412";
-////mainº¯Êı
+////mainå‡½æ•°
 //int main(){    
 //	IplImage *IplImagesrc = cvLoadImage("sample4.bmp");
 //    Mat mat (IplImagesrc);
